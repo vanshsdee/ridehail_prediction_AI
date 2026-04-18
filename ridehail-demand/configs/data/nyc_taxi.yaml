@@ -1,0 +1,12 @@
+name: nyc_taxi
+# Fill in once dataset is chosen. Kept generic so the loader is dataset-agnostic.
+source_url: https://www.nyc.gov/site/tlc/about/tlc-trip-record-data.page
+file_glob: "*.parquet"
+time_column: tpep_pickup_datetime
+zone_column: PULocationID
+freq: 1H            # temporal aggregation: 15min / 30min / 1H
+history_steps: 12   # input window
+horizon_steps: 3    # prediction horizon
+train_ratio: 0.7
+val_ratio: 0.15
+test_ratio: 0.15

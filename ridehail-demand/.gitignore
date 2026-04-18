@@ -1,0 +1,38 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+build/
+dist/
+.venv/
+.env
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Data — never commit raw data
+data/raw/*
+data/interim/*
+data/processed/*
+data/external/*
+!data/**/.gitkeep
+
+# Outputs
+outputs/checkpoints/*
+outputs/logs/*
+outputs/figures/*
+outputs/predictions/*
+!outputs/**/.gitkeep
+
+# IDE
+.vscode/
+.idea/
+.DS_Store
+
+# Tooling
+.mypy_cache/
+.ruff_cache/
+.pytest_cache/
+htmlcov/
+.coverage

@@ -1,0 +1,5 @@
+name: convlstm
+hidden_channels: [64, 64]
+kernel_size: 3
+num_layers: 2
+dropout: 0.1

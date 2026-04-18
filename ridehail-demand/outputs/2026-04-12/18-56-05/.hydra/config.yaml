@@ -1,0 +1,46 @@
+data:
+  name: nyc_taxi
+  source_url: https://www.nyc.gov/site/tlc/about/tlc-trip-record-data.page
+  file_glob: '*.parquet'
+  time_column: tpep_pickup_datetime
+  zone_column: PULocationID
+  freq: 1H
+  history_steps: 12
+  horizon_steps: 3
+  train_ratio: 0.7
+  val_ratio: 0.15
+  test_ratio: 0.15
+model:
+  name: convlstm
+  hidden_channels:
+  - 64
+  - 64
+  kernel_size: 3
+  num_layers: 2
+  dropout: 0.1
+training:
+  epochs: 50
+  batch_size: 64
+  num_workers: 4
+  optimizer:
+    name: adam
+    lr: 0.001
+    weight_decay: 1.0e-05
+  scheduler:
+    name: cosine
+    warmup_epochs: 2
+  loss: mae
+  grad_clip: 5.0
+  early_stopping_patience: 10
+  log_every_n_steps: 50
+project_name: ridehail-demand
+seed: 42
+device: auto
+paths:
+  root: ${oc.env:PROJECT_ROOT,.}
+  data_raw: ${paths.root}/data/raw
+  data_interim: ${paths.root}/data/interim
+  data_processed: ${paths.root}/data/processed
+  outputs: ${paths.root}/outputs
+  checkpoints: ${paths.outputs}/checkpoints
+  logs: ${paths.outputs}/logs

@@ -1,0 +1,19 @@
+# Default Hydra config — composed from configs/{data,model,training}/*.yaml
+defaults:
+  - data: nyc_taxi
+  - model: convlstm
+  - training: default
+  - _self_
+
+project_name: ridehail-demand
+seed: 42
+device: auto   # auto | cpu | cuda
+
+paths:
+  root: ${oc.env:PROJECT_ROOT,.}
+  data_raw: ${paths.root}/data/raw
+  data_interim: ${paths.root}/data/interim
+  data_processed: ${paths.root}/data/processed
+  outputs: ${paths.root}/outputs
+  checkpoints: ${paths.outputs}/checkpoints
+  logs: ${paths.outputs}/logs

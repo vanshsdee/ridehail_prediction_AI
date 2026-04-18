@@ -1,0 +1,42 @@
+name: ridehail
+channels:
+  - pytorch
+  - conda-forge
+dependencies:
+  - python=3.11
+  - pip
+  # Scientific stack
+  - numpy<2
+  - pandas
+  - scipy
+  - scikit-learn
+  - pyarrow
+  # Geospatial
+  - geopandas
+  - shapely
+  - pyproj
+  - rtree
+  # Visualization
+  - matplotlib
+  - seaborn
+  - plotly
+  # PyTorch (Apple Silicon — uses MPS automatically, no cpuonly/cuda flag)
+  - pytorch::pytorch
+  - pytorch::torchvision
+  # Notebooks
+  - jupyterlab
+  - ipykernel
+  - ipywidgets
+  # Dev tooling
+  - pytest
+  - black
+  - ruff
+  - pip:
+      - torch-geometric
+      - hydra-core
+      - omegaconf
+      - tensorboard
+      - tqdm
+      - python-dotenv
+      - rich
+      - einops

@@ -1,0 +1,7 @@
+name: tgnn
+gnn_type: GCN          # GCN | GAT | GraphSAGE
+hidden_dim: 64
+num_gnn_layers: 2
+temporal: GRU          # GRU | LSTM | Transformer
+num_temporal_layers: 1
+dropout: 0.1
